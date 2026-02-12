@@ -1,0 +1,146 @@
+\chapter{Листинг разработанной программы}
+
+\begin{lstlisting}[caption={Код серверной части приложения для обнаружения дефектов 3D-печати}, label={ls:a:01}]
+import os
+import uuid
+import logging
+from flask import Flask, request, send_from_directory, jsonify
+from flask_cors import CORS
+from roboflow import Roboflow
+import cv2
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+app = Flask(__name__)
+CORS(app) # Allow requests from different sources
+
+# Initializing the Roboflow model
+try:
+    rf = Roboflow(api_key="YOUR_API_KEY")
+    project = rf.workspace().project("3d-ho5at")
+    model = project.version(1).model
+    if not model:
+        raise ValueError("The model was not loaded correctly.")
+except Exception as e:
+    logging.error(f " Model initialization error: {e}")
+model = None
+
+# Creating directories for uploading and outputting files
+os. makedirs("uploads", exist_ok=True)
+os. makedirs("output", exist_ok=True)
+
+@app.route('/')
+def home():
+    return "Welcome to the 3D defect detection API!"
+
+@app.route('/upload_image', methods=['POST'])
+def upload_image():
+    if 'image' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+
+    file = request.files['image']
+    if not file.filename:
+        return jsonify({"error": "Invalid file name"}), 400
+
+    if not file.filename.lower().endswith(('.jpg', '.jpeg', '.png')): 
+        return jsonify({"error": "Invalid file format"}), 400
+
+    device_id = request.form.get('device_id', None)  #Get device_id
+    if not device_id:
+        return jsonify({"error": "Device ID is required"}), 400  # If there is no device_id, we return an error
+
+    # Unique file name with device_id appended
+    unique_filename = f"{device_id}_{uuid.uuid4().hex}_{file.filename}"
+    file_path = os.path.join("uploads", unique_filename)
+    file.save(file_path)
+
+    try:
+        if model is None:
+            return jsonify({"error": "Model is not initialized"}), 500
+
+        result = model.predict(file_path, confidence=30, overlap=40).json()
+    except Exception as e:
+        logging. error(f " Prediction error: {e}")
+return jsonify({"error": f " Prediction error: {e}"}), 500
+
+    if not result.get("predictions"):
+        return jsonify({"error": "No predictions found"}), 400
+
+    unique_classes = set()
+    image = cv2.imread(file_path)
+
+    for prediction in result["predictions"]:
+        x, y, width, height = prediction["x"], prediction["y"], prediction["width"], prediction["height"]
+        x1, y1 = int(x - width / 2), int(y - height / 2)
+        x2, y2 = int(x + width / 2), int(y + height / 2)
+        label = prediction["class"]
+        unique_classes.add(label)
+        cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        cv2.putText(image, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    output_filename = f"annotated_{unique_filename}"
+    output_path = os.path.join("output", output_filename)
+    cv2.imwrite(output_path, image)
+
+    image_url = f"{request. host_url}output/{output_filename}"
+logging.info(f " URL of the annotated image: {image_url}")
+
+    logging.info(f"Device ID: {device_id}")
+
+    return jsonify({
+        "classes": list(unique_classes),
+        "image_url": image_url,
+        "device_id": device_id
+    })
+
+@app.route('/output/<filename>')
+def get_output_image(filename):
+    try:
+        return send_from_directory('output', filename)
+    except FileNotFoundError:
+        logging. error(f " File {filename} not found in output.")
+return jsonify({"error": "File not found"}), 404
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
+
+\end{lstlisting}
+
+
+
+\chapter{Графики динамики ключевых метрик в процессе обучения нейросети}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=1\hsize]{fig/1results.png}
+\caption{Графики динамики ключевых метрик}\label{fig:1results}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=1\hsize]{fig/2results.png}
+\caption{Графики динамики ключевых метрик}\label{fig:2results}
+\end{center}
+\end{figure}
+
+\chapter{Примеры обработки изображений приложением}
+
+\begin{figure}[h!]
+  \begin{minipage}[b]{0.5\hsize}
+    \centering
+    \includegraphics[width=\hsize]{fig/HeCracking.jpeg}
+    \caption{Пример не найденного дефекта деламинации}
+    \label{fig:HeCracking}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.5\hsize}
+    \centering
+    \includegraphics[width=\hsize]{fig/cracking.jpg}
+    \caption{Пример найденного дефекта деламинации}
+    \label{fig:cracking}
+  \end{minipage}
+\end{figure}

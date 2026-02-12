@@ -1,0 +1,56 @@
+\documentclass[bachelor, substylefile=VolSU.rtx]{disser}
+
+\usepackage[
+  a4paper, mag=1000,
+  left=3.0cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
+]{geometry}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{array}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx, epsfig}
+\usepackage{enumitem} 
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{longtable}
+
+\usepackage{color}
+\usepackage[colorlinks=false,linkcolor=blue,breaklinks]{hyperref}
+
+\usepackage[citestyle=gost-numeric,style=gost-numeric,natbib=true,urldate=long, sorting=none,autolang=other]{biblatex}
+\usepackage{csquotes}
+\pagestyle{footcenter}
+\chapterpagestyle{footcenter}
+
+%для борьбы с переполнениями за счет разреженных слов в абзаце
+\emergencystretch=5em
+
+\graphicspath{{fig/}}
+\addbibresource{Bib.bib}
+
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{defffis}{ -- }
+\captionsetup[figure]{justification=centering, labelsep=defffis}
+%\captionsetup{justification=centering}
+%\captionsetup{labelsep=defffis}
+
+
+\begin{document}
+
+\input{title.tex}
+\renewcommand\contentsname{Содержание}
+\tableofcontents
+\input{Intro.tex}
+\input{Chapter1.tex}
+\input{Chapter2.tex}
+\input{Chapter3.tex}
+\input{Conclusion.tex}
+\printbibliography[heading=bibintoc]
+\include{Bib.bib}
+\input{Progress.tex}
+\appendix
+\input{Appendix.tex}
+
+\end{document}
