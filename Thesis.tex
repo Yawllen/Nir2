@@ -15,6 +15,9 @@
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}
 
 \usepackage{color}
 \usepackage[colorlinks=false,linkcolor=blue,breaklinks]{hyperref}
@@ -31,15 +34,27 @@
 \addbibresource{Bib.bib}
 
 \RequirePackage{caption}
-\DeclareCaptionLabelSeparator{defffis}{ -- }
+\DeclareCaptionLabelSeparator{defffis}{ --- }
 \captionsetup[figure]{justification=centering, labelsep=defffis}
+\captionsetup[lstlisting]{
+  justification=justified,
+  singlelinecheck=false,
+  labelsep=defffis,
+  margin=2.5em
+}
+\captionsetup[table]{
+  justification=justified,
+  singlelinecheck=false,
+  labelsep=defffis,
+  margin=2.5em
+}
 %\captionsetup{justification=centering}
 %\captionsetup{labelsep=defffis}
 
 
 \begin{document}
 
-\input{title.tex}
+\input{Title.tex}
 \renewcommand\contentsname{Содержание}
 \tableofcontents
 \input{Intro.tex}
