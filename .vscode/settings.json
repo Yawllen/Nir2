@@ -53,5 +53,12 @@
     }
   ],
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.synctex.afterBuild.enabled": true
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "[latex]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 110,
+    "editor.rulers": [
+      110
+    ]
+  }
 }
