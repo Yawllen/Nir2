@@ -1,0 +1,72 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(Thesis.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/disser\disser.cls
+Document Class: disser 2017/03/03 1.4.1 Document class for dissertations
+
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.s
+ty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.s
+ty))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifpdf.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty
+) (C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\size14.clo
+) (C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/base\exscale.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/disser\titledefs.rtx)
+
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
+ef))) (C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/cmap\cmap.sty))
+ (VolSU.rtx)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg
+)) (C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/cyrillic\t2aenc.def
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/base\t2aenc.dfu))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/cyrillic\t2acmr.fd)<<
+t2a.cmap>>)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\bab
+el-english.tex)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/ru\bab
+el-russian.tex)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english
+.ldf)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/babel-russian\russian
+b.ldf))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+))
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/graphics\epsfig.sty)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+)
+(C:\Users\Yawllen\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+
+(C:\Users\Yawllen\AppData\Local\Programs\
