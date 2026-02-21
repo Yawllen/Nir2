@@ -1,146 +1,34 @@
-\chapter{Листинг разработанной программы}
+\chapter{Схема электрической коммутации компонентов 3D-принтера}\label{app:commutation_scheme}
 
-\begin{lstlisting}[caption={Код серверной части приложения для обнаружения дефектов 3D-печати}, label={ls:a:01}]
-import os
-import uuid
-import logging
-from flask import Flask, request, send_from_directory, jsonify
-from flask_cors import CORS
-from roboflow import Roboflow
-import cv2
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-app = Flask(__name__)
-CORS(app) # Allow requests from different sources
-
-# Initializing the Roboflow model
-try:
-    rf = Roboflow(api_key="YOUR_API_KEY")
-    project = rf.workspace().project("3d-ho5at")
-    model = project.version(1).model
-    if not model:
-        raise ValueError("The model was not loaded correctly.")
-except Exception as e:
-    logging.error(f " Model initialization error: {e}")
-model = None
-
-# Creating directories for uploading and outputting files
-os. makedirs("uploads", exist_ok=True)
-os. makedirs("output", exist_ok=True)
-
-@app.route('/')
-def home():
-    return "Welcome to the 3D defect detection API!"
-
-@app.route('/upload_image', methods=['POST'])
-def upload_image():
-    if 'image' not in request.files:
-        return jsonify({"error": "No file part"}), 400
-
-    file = request.files['image']
-    if not file.filename:
-        return jsonify({"error": "Invalid file name"}), 400
-
-    if not file.filename.lower().endswith(('.jpg', '.jpeg', '.png')): 
-        return jsonify({"error": "Invalid file format"}), 400
-
-    device_id = request.form.get('device_id', None)  #Get device_id
-    if not device_id:
-        return jsonify({"error": "Device ID is required"}), 400  # If there is no device_id, we return an error
-
-    # Unique file name with device_id appended
-    unique_filename = f"{device_id}_{uuid.uuid4().hex}_{file.filename}"
-    file_path = os.path.join("uploads", unique_filename)
-    file.save(file_path)
-
-    try:
-        if model is None:
-            return jsonify({"error": "Model is not initialized"}), 500
-
-        result = model.predict(file_path, confidence=30, overlap=40).json()
-    except Exception as e:
-        logging. error(f " Prediction error: {e}")
-return jsonify({"error": f " Prediction error: {e}"}), 500
-
-    if not result.get("predictions"):
-        return jsonify({"error": "No predictions found"}), 400
-
-    unique_classes = set()
-    image = cv2.imread(file_path)
-
-    for prediction in result["predictions"]:
-        x, y, width, height = prediction["x"], prediction["y"], prediction["width"], prediction["height"]
-        x1, y1 = int(x - width / 2), int(y - height / 2)
-        x2, y2 = int(x + width / 2), int(y + height / 2)
-        label = prediction["class"]
-        unique_classes.add(label)
-        cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv2.putText(image, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-    output_filename = f"annotated_{unique_filename}"
-    output_path = os.path.join("output", output_filename)
-    cv2.imwrite(output_path, image)
-
-    image_url = f"{request. host_url}output/{output_filename}"
-logging.info(f " URL of the annotated image: {image_url}")
-
-    logging.info(f"Device ID: {device_id}")
-
-    return jsonify({
-        "classes": list(unique_classes),
-        "image_url": image_url,
-        "device_id": device_id
-    })
-
-@app.route('/output/<filename>')
-def get_output_image(filename):
-    try:
-        return send_from_directory('output', filename)
-    except FileNotFoundError:
-        logging. error(f " File {filename} not found in output.")
-return jsonify({"error": "File not found"}), 404
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
-
-@app.route('/favicon.ico')
-def favicon():
-    return '', 204
-
-\end{lstlisting}
-
-
-
-\chapter{Графики динамики ключевых метрик в процессе обучения нейросети}
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=1\hsize]{fig/1results.png}
-\caption{Графики динамики ключевых метрик}\label{fig:1results}
-\end{center}
-\end{figure}
+Наглядная схема электрической коммутации компонентов принтера приведена на рисунке~\ref{fig:appendix_commutation_scheme}.
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[width=1\hsize]{fig/2results.png}
-\caption{Графики динамики ключевых метрик}\label{fig:2results}
+\includegraphics[width=\hsize]{fig/commutation_diagram_nir2.png}
+\caption{Схема электрической коммутации компонентов 3D-принтера}\label{fig:appendix_commutation_scheme}
 \end{center}
 \end{figure}
 
-\chapter{Примеры обработки изображений приложением}
+Описание подключений по позициям схемы:
 
-\begin{figure}[h!]
-  \begin{minipage}[b]{0.5\hsize}
-    \centering
-    \includegraphics[width=\hsize]{fig/HeCracking.jpeg}
-    \caption{Пример не найденного дефекта деламинации}
-    \label{fig:HeCracking}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.5\hsize}
-    \centering
-    \includegraphics[width=\hsize]{fig/cracking.jpg}
-    \caption{Пример найденного дефекта деламинации}
-    \label{fig:cracking}
-  \end{minipage}
-\end{figure}
+\begin{itemize}
+\item Позиция 1 — нагреваемый стол. Нагревательный стол подключается к плате MKS Robin Nano~1.2 как силовая нагрузка контура стола. В актуальной конфигурации прошивки это соответствует блоку \texttt{[heater\_bed]} с каналом управления нагревом \texttt{heater\_pin: PA0}. Температурный контроль стола реализован через отдельный термодатчик, подключенный к измерительному входу платы; в профиле задано \texttt{sensor\_type: NTC100K\_B3950} и \texttt{sensor\_pin: PC0}. Для безопасной эксплуатации заданы программные ограничения и проверка набора температуры (\texttt{max\_temp: 120}, \texttt{max\_power: 1.00}, блок \texttt{[verify\_heater heater\_bed]}).
+
+\item Позиция 2 — нагреватель и термистор хотэнда. Нагреватель хотэнда подключен к плате MKS Robin Nano~1.2 как отдельный силовой канал экструдера; в актуальном профиле это блок \texttt{[extruder]} с \texttt{heater\_pin: PB0}. Термодатчик хотэнда подключен к отдельному измерительному входу платы и описан как \texttt{sensor\_type: NTC100K\_B3950} с \texttt{sensor\_pin: PC1}. Для защиты от нештатных режимов заданы температурные и технологические ограничения (\texttt{max\_temp: 280}, \texttt{max\_power: 1.0}, \texttt{min\_extrude\_temp: 170}).
+
+\item Позиция 3 — блок питания. Блок питания работает от сети 220~В и формирует выходную шину 24~В для низковольтной части принтера. В данной конфигурации напрямую к выходу блока питания подключены только плата MKS Robin Nano~1.2 и понижающий преобразователь DC-DC. Подключение остальных нагрузок выполняется через плату MKS.
+
+\item Позиция 4 — понижающий преобразователь DC-DC. Понижающий преобразователь получает питание от шины 24~В и формирует стабилизированную линию 5~В для низковольтной подсистемы. К выходу преобразователя подключены Raspberry Pi~3B, USB-камера Sonix USB 2.0 и экран. Такое разделение контуров позволяет питать хостовые устройства от отдельной линии 5~В и не подключать их напрямую к выходам платы MKS Robin Nano~1.2.
+
+\item Позиция 5 — шаговые двигатели и драйверы TMC2209. Подключение двигателей выполнено через моторные разъемы платы MKS Robin Nano~1.2, обозначенные в даташите как \texttt{X}, \texttt{Y}, \texttt{Z1}, \texttt{E0}, \texttt{E1}. В текущей конфигурации задействованы \texttt{X}, \texttt{Y}, \texttt{Z1} и \texttt{E0}; разъем \texttt{E1} не используется. Для этих каналов установлены драйверы TMC2209, при этом в профиле прошивки задано \texttt{microsteps: 16}, а секции \texttt{[tmc*]} отсутствуют, что соответствует автономному режиму работы драйверов.
+
+\item Позиция 6 — концевые выключатели. Концевые выключатели осей X, Y и Z подключены к сигнальным входам платы MKS Robin Nano~1.2 и используются для выполнения процедуры фиксации базовых координат принтера. В профиле прошивки они заданы как \texttt{endstop\_pin: \^PA15} для оси X, \texttt{endstop\_pin: \^PA12} для оси Y и \texttt{endstop\_pin: \^PA11} для оси Z. Корректная работа концевых выключателей влияет на точность базирования и предотвращает выход механики за допустимые пределы перемещения.
+
+\item Позиция 7 — плата управления MKS Robin Nano~1.2. Плата является центральным узлом коммутации и управления: на нее подается питание 24~В, к ней подключаются исполнительные и измерительные цепи принтера, а также линия связи с Raspberry Pi. На уровне прошивки MKS работает как MCU в контуре Klipper, выполняя обработку команд реального времени для двигателей, нагревателей и датчиков. В текущей конфигурации обмен с хостом выполняется по UART, что соответствует принятой архитектуре управления в проекте.
+
+\item Позиция 8 — AMOLED-экран. Экран подключен к Raspberry Pi по интерфейсу HDMI для вывода изображения и по USB для работы сенсорного ввода. Такая схема разделяет видеоканал и канал передачи событий касания, что обеспечивает корректную работу локального интерфейса управления.
+
+\item Позиция 9 — камера. Камера подключена к Raspberry Pi по USB и используется как источник видеоданных для наблюдения за зоной печати. Далее видеопоток передается в программный контур мониторинга и используется для обнаружения отклонений в процессе 3D-печати.
+
+\item Позиция 10 — Raspberry Pi~3B. Raspberry Pi является хост-узлом контура управления: на нем работают сервисы Klipper и Moonraker, а также подсистема видеомониторинга. Сигнальная связь с платой MKS Robin Nano~1.2 выполнена по UART через контактный разъем GPIO Raspberry Pi и разъем WiFi-UART платы RN12: \texttt{GPIO14 / pin 8 (TX) -> PA10 (RX)}, \texttt{GPIO15 / pin 10 (RX) -> PA9 (TX)}, общий провод \texttt{GND -> GND}. В текущей конфигурации проекта именно этот UART-канал используется как основной рабочий канал связи.
+\end{itemize}
