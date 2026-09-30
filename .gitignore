@@ -24,6 +24,8 @@
 
 # Generated PDFs
 *.pdf
+!fig/printer-decision-flow.drawio.pdf
+!fig/server-detection-flow.drawio.pdf
 
 # Optional build folders
 build/
