@@ -26,6 +26,7 @@
 *.pdf
 !fig/printer-decision-flow.drawio.pdf
 !fig/server-detection-flow.drawio.pdf
+!fig/commutation-a2.drawio.pdf
 
 # Optional build folders
 build/
