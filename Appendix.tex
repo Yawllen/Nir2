@@ -67,6 +67,8 @@
 \item \texttt{verify.sh} --- проверяет параметры загрузки, службы, конфигурацию связи с платой управления и готовность Klipper и Moonraker. Обязательная проверка ADXL345 включает интерфейс SPI, службу \texttt{klipper-mcu.service}, конфигурацию Input Shaper и выполнение команды \texttt{ACCELEROMETER\_QUERY}. Проверка камеры определяется параметром \texttt{TREED\_VERIFY\_CAMERA}: в режиме \texttt{auto} она выполняется при наличии сформированного фрагмента конфигурации камеры. Наличие ошибок в обязательных проверках приводит к ненулевому коду завершения шага.
 \end{enumerate}
 
+Для описанной конфигурации с платой MKS Robin Nano~V1.2 и хостом Raspberry Pi~3B при сборке Klipper используются параметры \texttt{STM32F103}, \texttt{28KiB bootloader}, \texttt{8 MHz crystal}, \texttt{Serial (on USART1 PA10/PA9)} и скорость \texttt{250000}. Подготовленный образ записывается на карту microSD под именем \texttt{ROBIN\_NANO.bin}; после обработки загрузчиком файл получает имя \texttt{ROBIN\_NANO.CUR}. Аппаратный UART хоста доступен через устройство \texttt{/dev/serial0}. В разъеме RN12 используются линии PA9 и PA10 и общий провод; на стороне хоста задействованы GPIO14 и GPIO15. Командам запуска, приостановки, продолжения и отмены печати соответствуют \texttt{START\_PRINT}, \texttt{PAUSE}, \texttt{RESUME} и \texttt{CANCEL\_PRINT}.
+
 \chapter{Общий вид тестового стенда для 3D-печати}\label{app:test_stand_general_view}
 
 На рисунке~\ref{fig:appendix_test_stand_general_view} представлен общий вид тестового стенда для 3D-печати. На изображении видны несущая рама и верхний портал с печатающей головкой. Платформа стола размещена внутри рамы.
