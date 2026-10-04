@@ -66,3 +66,13 @@
 \item \texttt{maintenance-start.sh} --- при включенном режиме обслуживания запускает службы после развертывания конфигурации. Готовность Klipper и Moonraker проверяется обязательно; запуск камеры и экранного интерфейса допускает предупреждения.
 \item \texttt{verify.sh} --- проверяет параметры загрузки, службы, конфигурацию связи с платой управления и готовность Klipper и Moonraker. Обязательная проверка ADXL345 включает интерфейс SPI, службу \texttt{klipper-mcu.service}, конфигурацию Input Shaper и выполнение команды \texttt{ACCELEROMETER\_QUERY}. Проверка камеры определяется параметром \texttt{TREED\_VERIFY\_CAMERA}: в режиме \texttt{auto} она выполняется при наличии сформированного фрагмента конфигурации камеры. Наличие ошибок в обязательных проверках приводит к ненулевому коду завершения шага.
 \end{enumerate}
+
+\chapter{Общий вид тестового стенда для 3D-печати}\label{app:test_stand_general_view}
+
+На рисунке~\ref{fig:appendix_test_stand_general_view} представлен общий вид тестового стенда для 3D-печати. На изображении видны несущая рама и верхний портал с печатающей головкой. Платформа стола размещена внутри рамы.
+
+\begin{figure}[h!]
+\centering
+\caption{Общий вид тестового стенда для 3D-печати}\label{fig:appendix_test_stand_general_view}
+\includegraphics[width=\linewidth,height=0.68\textheight,keepaspectratio]{fig/test_stand_general_view.png}
+\end{figure}
