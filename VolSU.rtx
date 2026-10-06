@@ -5,7 +5,7 @@
 
 \AtBeginDocument{
 
-    \renewcommand\labelitemi{---}
+    \renewcommand\labelitemi{\textemdash{}}
 
     \renewcommand\tocpostthesection{\@postskip}
     \renewcommand\tocpostthesubsection{\@postskip}
@@ -61,8 +61,8 @@
       \noindent\thetasksCounter.  #1 
       \newline \hspace{1cm} \CYRO\cyrt\cyrm\cyre\cyrt\cyrk\cyra\ %
       \cyro\ %
-      \cyrv\cyrery\cyrp\cyro\cyrl\cyrn\cyre\cyrn\cyri\cyri: \underline{\hspace{4cm}} /0 --- 100 \cyrb\cyra\cyrl\cyrl\cyro\cyrv/
-%      \newline \hspace{1cm} Отметка о выполнении: \underline{\hspace{4cm}}/0 --- 100 баллов/
+      \cyrv\cyrery\cyrp\cyro\cyrl\cyrn\cyre\cyrn\cyri\cyri: \underline{\hspace{4cm}} /0 \textemdash{} 100 \cyrb\cyra\cyrl\cyrl\cyro\cyrv/
+%      \newline \hspace{1cm} Отметка о выполнении: \underline{\hspace{4cm}}/0 \textemdash{} 100 баллов/
       \stepcounter{tasksCounter}
   } 
 }
@@ -193,7 +193,7 @@
     \end{flushleft}
     \vfill
     \begin{center}
-        {\@city \: --- \@date}
+        {\@city \: \textemdash{} \@date}
     \end{center}
     \vskip\seventhskip
     \normalfont\clearpage
