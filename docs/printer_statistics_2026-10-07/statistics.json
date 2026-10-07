@@ -1,0 +1,540 @@
+{
+  "date": "2026-10-07",
+  "timezone": "Europe/Moscow",
+  "requested_addresses": 19,
+  "available_printers": 10,
+  "unavailable_addresses": 9,
+  "scope": "all time; no period filter",
+  "rollup": {
+    "printers": 10,
+    "total_jobs_counter": 4667,
+    "quantity_history_jobs": 4640,
+    "status_counts": {
+      "completed": 3063,
+      "cancelled": 1237,
+      "failed": 12,
+      "error": 72,
+      "klippy_shutdown": 244,
+      "klippy_disconnect": 12
+    },
+    "total_print_time_seconds": 66123501.0628398,
+    "total_filament_used_m": 51760.066714677974
+  },
+  "printers": [
+    {
+      "requested_name": "ST-DAB",
+      "address": "st-dab",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:31.369617+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-LSM",
+      "address": "st-lsm",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:31.369617+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-WHE",
+      "address": "st-whe",
+      "ip": "192.168.155.114",
+      "collected_at": "2026-10-07T17:10:34.362571+03:00",
+      "available": true,
+      "printer_name": "ST-WHE",
+      "serial": "HTE5305422WHE",
+      "total_jobs": 285,
+      "total_print_time_seconds": 3283432.311992785,
+      "total_print_time": "38 д 00:03:52",
+      "longest_print_seconds": 407840.884219317,
+      "longest_print_time": "4 д 17:17:21",
+      "average_print_time_seconds": 11521,
+      "average_print_time": "03:12:01",
+      "filament_used_mm": 2808645.4923700006,
+      "filament_used_m": 2808.6,
+      "quantity_total": 290,
+      "status_counts": {
+        "completed": 144,
+        "cancelled": 124,
+        "failed": 1,
+        "error": 7,
+        "klippy_shutdown": 14,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "completed": 144,
+        "cancelled": 124,
+        "failed": 1,
+        "klippy_shutdown": 14,
+        "error": 7,
+        "idle_time": 0
+      },
+      "counter_difference": 5,
+      "source_urls": {
+        "totals": "http://192.168.155.114:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.114:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.114:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-1XW",
+      "address": "st-1xw",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:31.370617+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-AB3",
+      "address": "st-ab3",
+      "ip": "192.168.155.27",
+      "collected_at": "2026-10-07T17:10:34.373571+03:00",
+      "available": true,
+      "printer_name": "ST-AB3",
+      "serial": "HTE5305422AB3",
+      "total_jobs": 289,
+      "total_print_time_seconds": 5110124.681995584,
+      "total_print_time": "59 д 03:28:45",
+      "longest_print_seconds": 240826.93712984998,
+      "longest_print_time": "2 д 18:53:47",
+      "average_print_time_seconds": 17682,
+      "average_print_time": "04:54:42",
+      "filament_used_mm": 3819551.6018210305,
+      "filament_used_m": 3819.6,
+      "quantity_total": 292,
+      "status_counts": {
+        "completed": 170,
+        "cancelled": 104,
+        "failed": 1,
+        "error": 3,
+        "klippy_shutdown": 14,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "cancelled": 104,
+        "completed": 170,
+        "klippy_shutdown": 14,
+        "failed": 1,
+        "error": 3,
+        "idle_time": 0
+      },
+      "counter_difference": 3,
+      "source_urls": {
+        "totals": "http://192.168.155.27:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.27:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.27:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-VFV",
+      "address": "st-vfv",
+      "ip": "192.168.155.87",
+      "collected_at": "2026-10-07T17:10:34.252385+03:00",
+      "available": true,
+      "printer_name": "ST-VFV",
+      "serial": "HTE5305422VFV",
+      "total_jobs": 89,
+      "total_print_time_seconds": 1342122.3610655204,
+      "total_print_time": "15 д 12:48:42",
+      "longest_print_seconds": 68287.82034421107,
+      "longest_print_time": "18:58:08",
+      "average_print_time_seconds": 15080,
+      "average_print_time": "04:11:20",
+      "filament_used_mm": 1323972.56978998,
+      "filament_used_m": 1324.0,
+      "quantity_total": 88,
+      "status_counts": {
+        "completed": 56,
+        "cancelled": 17,
+        "failed": 2,
+        "error": 2,
+        "klippy_shutdown": 11,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "cancelled": 17,
+        "completed": 56,
+        "failed": 2,
+        "klippy_shutdown": 11,
+        "error": 2,
+        "idle_time": 0
+      },
+      "counter_difference": -1,
+      "source_urls": {
+        "totals": "http://192.168.155.87:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.87:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.87:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-AJN",
+      "address": "st-ajn",
+      "ip": "192.168.155.29",
+      "collected_at": "2026-10-07T17:10:34.264386+03:00",
+      "available": true,
+      "printer_name": "ST-AJN",
+      "serial": "HTE5305422AJN",
+      "total_jobs": 222,
+      "total_print_time_seconds": 2599878.8314560885,
+      "total_print_time": "30 д 02:11:19",
+      "longest_print_seconds": 92067.798591806,
+      "longest_print_time": "1 д 01:34:28",
+      "average_print_time_seconds": 11711,
+      "average_print_time": "03:15:11",
+      "filament_used_mm": 2608314.967953241,
+      "filament_used_m": 2608.3,
+      "quantity_total": 256,
+      "status_counts": {
+        "completed": 111,
+        "cancelled": 69,
+        "failed": 0,
+        "error": 10,
+        "klippy_shutdown": 66,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "cancelled": 69,
+        "klippy_shutdown": 66,
+        "completed": 111,
+        "error": 10,
+        "idle_time": 0
+      },
+      "counter_difference": 34,
+      "source_urls": {
+        "totals": "http://192.168.155.29:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.29:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.29:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-55S",
+      "address": "st-55s",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:39.691382+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-WV1",
+      "address": "st-wv1",
+      "ip": "192.168.155.77",
+      "collected_at": "2026-10-07T17:10:34.275386+03:00",
+      "available": true,
+      "printer_name": "ST-WV1",
+      "serial": "HTE5305422WV1",
+      "total_jobs": 129,
+      "total_print_time_seconds": 1285879.780078752,
+      "total_print_time": "14 д 21:11:20",
+      "longest_print_seconds": 62521.023556879,
+      "longest_print_time": "17:22:01",
+      "average_print_time_seconds": 9968,
+      "average_print_time": "02:46:08",
+      "filament_used_mm": 1678266.190529791,
+      "filament_used_m": 1678.3,
+      "quantity_total": 133,
+      "status_counts": {
+        "completed": 81,
+        "cancelled": 41,
+        "failed": 0,
+        "error": 2,
+        "klippy_shutdown": 9,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "klippy_shutdown": 9,
+        "completed": 81,
+        "error": 2,
+        "cancelled": 41,
+        "idle_time": 0
+      },
+      "counter_difference": 4,
+      "source_urls": {
+        "totals": "http://192.168.155.77:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.77:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.77:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-EWY",
+      "address": "st-ewy",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:47.987840+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-WA2",
+      "address": "st-wa2",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:51.656029+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-CA7",
+      "address": "st-ca7",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:51.659027+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-FRH",
+      "address": "st-frh",
+      "ip": "192.168.155.89",
+      "collected_at": "2026-10-07T17:10:34.965668+03:00",
+      "available": true,
+      "printer_name": "ST-FRH",
+      "serial": "HTE5205122FRH",
+      "total_jobs": 1039,
+      "total_print_time_seconds": 12319850.915577138,
+      "total_print_time": "142 д 14:10:51",
+      "longest_print_seconds": 201447.63243492402,
+      "longest_print_time": "2 д 07:57:28",
+      "average_print_time_seconds": 11857,
+      "average_print_time": "03:17:37",
+      "filament_used_mm": 9054976.128058095,
+      "filament_used_m": 9055.0,
+      "quantity_total": 1046,
+      "status_counts": {
+        "completed": 736,
+        "cancelled": 257,
+        "failed": 6,
+        "error": 6,
+        "klippy_shutdown": 40,
+        "klippy_disconnect": 1
+      },
+      "all_status_counts": {
+        "error": 6,
+        "cancelled": 257,
+        "completed": 736,
+        "klippy_shutdown": 40,
+        "klippy_disconnect": 1,
+        "failed": 6,
+        "idle_time": 0
+      },
+      "counter_difference": 7,
+      "source_urls": {
+        "totals": "http://192.168.155.89:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.89:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.89:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-SHB",
+      "address": "st-shb",
+      "ip": "192.168.155.48",
+      "collected_at": "2026-10-07T17:10:35.279986+03:00",
+      "available": true,
+      "printer_name": "ST-SHB",
+      "serial": "HTE5305122SHB",
+      "total_jobs": 1459,
+      "total_print_time_seconds": 14764661.29171915,
+      "total_print_time": "170 д 21:17:41",
+      "longest_print_seconds": 195748.64786772398,
+      "longest_print_time": "2 д 06:22:29",
+      "average_print_time_seconds": 10120,
+      "average_print_time": "02:48:40",
+      "filament_used_mm": 10839956.247528652,
+      "filament_used_m": 10840.0,
+      "quantity_total": 1359,
+      "status_counts": {
+        "completed": 921,
+        "cancelled": 351,
+        "failed": 2,
+        "error": 31,
+        "klippy_shutdown": 51,
+        "klippy_disconnect": 3
+      },
+      "all_status_counts": {
+        "klippy_shutdown": 51,
+        "error": 31,
+        "cancelled": 351,
+        "completed": 921,
+        "failed": 2,
+        "klippy_disconnect": 3,
+        "idle_time": 0
+      },
+      "counter_difference": -100,
+      "source_urls": {
+        "totals": "http://192.168.155.48:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.48:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.48:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-03Q",
+      "address": "st-03q",
+      "ip": "",
+      "collected_at": "2026-10-07T17:06:59.856909+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "Имя не разрешается в IP; проверены исходное имя и .local.",
+      "api_errors": {
+        "dns_error": "[Errno 11001] getaddrinfo failed"
+      }
+    },
+    {
+      "requested_name": "ST-BRJ",
+      "address": "st-brj",
+      "ip": "192.168.155.80",
+      "collected_at": "2026-10-07T17:10:34.413217+03:00",
+      "available": true,
+      "printer_name": "ST-BRJ",
+      "serial": "HTE5305122BRJ",
+      "total_jobs": 7,
+      "total_print_time_seconds": 34640.54101058705,
+      "total_print_time": "09:37:21",
+      "longest_print_seconds": 12480.125755500048,
+      "longest_print_time": "03:28:00",
+      "average_print_time_seconds": 4949,
+      "average_print_time": "01:22:29",
+      "filament_used_mm": 48226.914519999955,
+      "filament_used_m": 48.2,
+      "quantity_total": 7,
+      "status_counts": {
+        "completed": 6,
+        "cancelled": 1,
+        "failed": 0,
+        "error": 0,
+        "klippy_shutdown": 0,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "completed": 6,
+        "cancelled": 1,
+        "idle_time": 0
+      },
+      "counter_difference": 0,
+      "source_urls": {
+        "totals": "http://192.168.155.80:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.80:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.80:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-86R",
+      "address": "st-86r",
+      "ip": "192.168.155.171",
+      "collected_at": "2026-10-07T17:10:34.972670+03:00",
+      "available": true,
+      "printer_name": "ST-86R",
+      "serial": "HTE530512286R",
+      "total_jobs": 1119,
+      "total_print_time_seconds": 25351414.54701101,
+      "total_print_time": "293 д 10:03:35",
+      "longest_print_seconds": 114006.29811895778,
+      "longest_print_time": "1 д 07:40:06",
+      "average_print_time_seconds": 22655,
+      "average_print_time": "06:17:35",
+      "filament_used_mm": 19547414.34731719,
+      "filament_used_m": 19547.4,
+      "quantity_total": 1139,
+      "status_counts": {
+        "completed": 825,
+        "cancelled": 258,
+        "failed": 0,
+        "error": 11,
+        "klippy_shutdown": 37,
+        "klippy_disconnect": 8
+      },
+      "all_status_counts": {
+        "cancelled": 258,
+        "completed": 825,
+        "klippy_shutdown": 37,
+        "klippy_disconnect": 8,
+        "error": 11,
+        "idle_time": 0
+      },
+      "counter_difference": 20,
+      "source_urls": {
+        "totals": "http://192.168.155.171:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.171:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.171:7125/machine/info"
+      }
+    },
+    {
+      "requested_name": "ST-EWY",
+      "address": "192.168.155.121",
+      "ip": "192.168.155.121",
+      "collected_at": "2026-10-07T17:10:49.421041+03:00",
+      "available": false,
+      "printer_name": null,
+      "reason": "API закрывает соединение без ответа; SSH: таймаут получения приветствия сервера.",
+      "api_errors": {
+        "totals_error": "Remote end closed connection without response",
+        "stats_error": "Remote end closed connection without response",
+        "identity_error": "Remote end closed connection without response"
+      }
+    },
+    {
+      "requested_name": "IP-155-136",
+      "address": "192.168.155.136",
+      "ip": "192.168.155.136",
+      "collected_at": "2026-10-07T17:10:34.597671+03:00",
+      "available": true,
+      "printer_name": "ST-Y10",
+      "serial": "HFE5305526Y10",
+      "total_jobs": 29,
+      "total_print_time_seconds": 31495.80093318699,
+      "total_print_time": "08:44:56",
+      "longest_print_seconds": 7806.720775681,
+      "longest_print_time": "02:10:07",
+      "average_print_time_seconds": 1086,
+      "average_print_time": "00:18:06",
+      "filament_used_mm": 30742.254789999995,
+      "filament_used_m": 30.7,
+      "quantity_total": 30,
+      "status_counts": {
+        "completed": 13,
+        "cancelled": 15,
+        "failed": 0,
+        "error": 0,
+        "klippy_shutdown": 2,
+        "klippy_disconnect": 0
+      },
+      "all_status_counts": {
+        "cancelled": 15,
+        "klippy_shutdown": 2,
+        "completed": 13,
+        "idle_time": 0
+      },
+      "counter_difference": 1,
+      "source_urls": {
+        "totals": "http://192.168.155.136:7125/server/printjobs/totals",
+        "stats": "http://192.168.155.136:7125/server/printjobs/stats",
+        "identity": "http://192.168.155.136:7125/machine/info"
+      }
+    }
+  ]
+}
