@@ -1,0 +1,104 @@
+{
+  "threshold": 0.3,
+  "metric_rows": 14,
+  "font_file": "C:\\Windows\\Fonts\\times.ttf",
+  "predictions_reconciled": true,
+  "negative_control_passed": true,
+  "formulas_checked": true,
+  "disjoint_test_sources_reconciled": true,
+  "final_v10_chain_epochs": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "plotted_v10_main_epochs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "plotted_v10_continuation_epochs": [
+    1,
+    2
+  ],
+  "v10_parent": {
+    "version": "v9",
+    "epoch": 7
+  },
+  "v10_continuation_origin": {
+    "version": "v10",
+    "epoch": 3
+  },
+  "completed_v10_training_epochs": 22,
+  "figures": [
+    {
+      "name": "01_training_comparison",
+      "pixels": [
+        3960,
+        3000
+      ],
+      "dpi": 300,
+      "font": "Times New Roman",
+      "minimum_font_pt": 14,
+      "pdf_vector": true,
+      "labels_within_canvas": true
+    },
+    {
+      "name": "02_confusion_matrices",
+      "pixels": [
+        3600,
+        1920
+      ],
+      "dpi": 300,
+      "font": "Times New Roman",
+      "minimum_font_pt": 14,
+      "pdf_vector": true,
+      "labels_within_canvas": true
+    },
+    {
+      "name": "03_quality_by_source",
+      "pixels": [
+        4200,
+        2400
+      ],
+      "dpi": 300,
+      "font": "Times New Roman",
+      "minimum_font_pt": 14,
+      "pdf_vector": true,
+      "labels_within_canvas": true
+    }
+  ],
+  "input_sha256": {
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\classification_metrics.json": "542ba51e8a90526f18b29d665e076374ecea4456b83f61d7aafc3d08fcd1cd82",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\classification_predictions.json": "c44b8b62c0481a600d4377e40abfc30f6164a6581d253da6792c3452befad997",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\run_metadata.json": "ed4027127d0b0ca29bcf21cddfcbc43645a227d3d3392c2ed123a30b809a7143",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\training_diagnostics_metrics.json": "0201de2fed668a2633337090f44e43592f4902acc34b2e9c77da65724b5ebd87",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\training_diagnostics_predictions.json": "7256572743abac215ba5bc8976fbfcef4f347b204a80f68c1a8ebab9580b79b5",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v5\\history.json": "5bddae6ac4513544192d5567207f09c554a3cce33e2c5cfcfd7091bb11680717",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v8_r4\\history.json": "ccd57bcd856e5875e896a34c7a2a0ad79a3392f480d7b054ed0cc06f6bd6f826",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v9\\history.json": "f41e7ab51ab8b83791379589001f8dfde6a89006fad063cdf9281b3c17739b2b",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\first_stage_history.json": "be1b05101d21cb8838c956c3916bb90426b93fade06ae999d11d8df7c09ea72e",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\history.json": "aceaf2fb401f0890ff623cc47e049d4f0fb512c453750de0030b0f0e7591912d",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v10\\training_config.json": "5fba407a65544820a3761b64e9f27608e4e55b1992853c4b0fd2aae708a6dab0",
+    "C:\\Users\\Yawllen\\Documents\\GitHub\\printer-defect-server\\models\\spaghetti_presence_v9\\run_metadata.json": "3534d9198825edb686fcac3d214f68b8860db1b932dae285a9a5b7314d635a6a"
+  },
+  "source_files_unchanged": true
+}

@@ -1,0 +1,15 @@
+﻿Группа данных;Источник / сессия;Порог;Кадров;С дефектом;Без дефекта;TP;FP;FN;TN;Точность положительных ответов, %;Полнота, %;F1, %;Доля верных ответов, %;AP, %;Доля ложных тревог, %;Источник результата
+Контроль;Валидация, весь набор;0,3;2989;910;2079;905;11;5;2068;98,80;99,45;99,12;99,46;99,43;0,53;classification_metrics.json: valid
+Контроль;Историческая валидация принтера;0,3;123;5;118;0;0;5;118;—;0,00;0,00;95,93;87,62;0,00;run_metadata.json: target_metrics_at_0_3.valid
+Контроль;Тест, весь набор;0,3;3337;918;2419;917;13;1;2406;98,60;99,89;99,24;99,58;99,78;0,54;classification_metrics.json: test
+Контроль;Историческая тестовая выборка принтера;0,3;473;14;459;13;3;1;456;81,25;92,86;86,67;99,15;93,45;0,65;run_metadata.json: target_metrics_at_0_3.test
+Диагностика обучения;Все четыре сессии;0,3;115;21;94;21;0;0;94;100,00;100,00;100,00;100,00;100,00;0,00;training_diagnostics_metrics.json: overall
+Диагностика обучения;AutumMapleLeafCandleHolder;0,3;52;0;52;0;0;0;52;—;—;—;100,00;—;0,00;training_diagnostics_metrics.json: sessions.AutumMapleLeafCandleHolder
+Диагностика обучения;OrcaCube;0,3;16;6;10;6;0;0;10;100,00;100,00;100,00;100,00;—;0,00;training_diagnostics_metrics.json: sessions.OrcaCube
+Диагностика обучения;RealMano;0,3;24;15;9;15;0;0;9;100,00;100,00;100,00;100,00;—;0,00;training_diagnostics_metrics.json: sessions.RealMano
+Диагностика обучения;calicat;0,3;23;0;23;0;0;0;23;—;—;—;100,00;—;0,00;training_diagnostics_metrics.json: sessions.calicat
+Источники теста;Кадры без спагетти;0,3;1950;0;1950;0;0;0;1950;—;—;—;100,00;—;0,00;classification_metrics.json: test.slices.our_detail_combined
+Источники теста;Кадры со спагетти из внешних источников;0,3;609;599;10;599;10;0;0;98,36;100,00;99,17;98,36;—;100,00;classification_metrics.json: test.slices.our_spaghetti
+Источники теста;Печать контрольного изделия;0,3;19;13;6;13;3;0;3;81,25;100,00;89,66;84,21;—;50,00;classification_metrics.json: test.slices.printer_benchy_spaghetti_20261006
+Источники теста;Историческая съёмка принтера;0,3;454;1;453;0;0;1;453;—;0,00;0,00;99,78;—;0,00;classification_metrics.json: test.slices.printer_capture_20261003
+Источники теста;Открытый размеченный набор;0,3;305;305;0;305;0;0;0;100,00;100,00;100,00;100,00;—;—;classification_metrics.json: test.slices.stereovision_spaghetti

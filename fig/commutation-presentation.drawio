@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="YG7eUmPlCPcWHlaeDXkE" name="Страница-1">
+    <mxGraphModel dx="1201" dy="771" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1135" pageHeight="515" background="#ffffff" math="0" shadow="0" adaptiveColors="none">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ac" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="Сеть 220 В~&lt;br&gt;L, N, PE" vertex="1">
+          <mxGeometry height="75" width="245" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="psu" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="&lt;b&gt;3. Блок питания&lt;/b&gt;&lt;br&gt;220 В~ → 24 В ⎓&lt;br&gt;+V / −V; PE — корпус" vertex="1">
+          <mxGeometry height="75" width="340" x="315" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dc" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#F000A0;" value="&lt;b&gt;4. DC-DC&lt;/b&gt;&lt;br&gt;IN: +24 В / 0 В&lt;br&gt;OUT: +5 В / 0 В" vertex="1">
+          <mxGeometry height="75" width="185" x="690" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="camera" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#00B6D4;" value="&lt;b&gt;9. Камера Sonix&lt;/b&gt;&lt;br&gt;USB 2.0: данные&lt;br&gt;и питание от Raspberry Pi" vertex="1">
+          <mxGeometry height="75" width="220" x="895" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pe" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=none;" value="PE: корпус БП&lt;br&gt;и металлическое шасси" vertex="1">
+          <mxGeometry height="55" width="245" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="mks" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="350" width="340" x="315" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="mksh" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=none;" value="&lt;b&gt;7. MKS Robin Nano V1.2&lt;/b&gt;&lt;br&gt;Питание: +24 В / GND&lt;br&gt;RN12 / WiFi-UART: 3,3 В&lt;br&gt;PA9 — TX; PA10 — RX" vertex="1">
+          <mxGeometry height="100" width="320" x="325" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="bedport" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#EF0000;" value="H-BED (+ / −)&lt;br&gt;Нагрев: PA0" vertex="1">
+          <mxGeometry height="70" width="150" x="327" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="hotport" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#EF0000;" value="HE1 (+ / −)&lt;br&gt;Нагрев: PB0" vertex="1">
+          <mxGeometry height="70" width="150" x="327" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="motorport" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=14;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#9200FF;" value="TMC2209; STEP/DIR&lt;br&gt;X / Y / Z1 / E0&lt;br&gt;E1 не используется" vertex="1">
+          <mxGeometry height="70" width="150" x="327" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="fanport" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=14;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#EF0000;" value="Вентиляторы&lt;br&gt;+24 В /&lt;br&gt;управляемый «−»" vertex="1">
+          <mxGeometry height="70" width="150" x="493" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="tempport" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#00B020;" value="Термисторы&lt;br&gt;Стол: PC0&lt;br&gt;Хотэнд: PC1" vertex="1">
+          <mxGeometry height="70" width="150" x="493" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="limitport" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#00B020;" value="X: PA15; Y: PA12&lt;br&gt;Z: PA11&lt;br&gt;Сигнал / GND" vertex="1">
+          <mxGeometry height="70" width="150" x="493" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="bed" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="&lt;b&gt;1. Нагреватель стола&lt;/b&gt;&lt;br&gt;24 В; два провода" vertex="1">
+          <mxGeometry height="70" width="245" x="20" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="hot" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="&lt;b&gt;2. Нагреватель хотэнда&lt;/b&gt;&lt;br&gt;24 В; два провода" vertex="1">
+          <mxGeometry height="70" width="245" x="20" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="motor" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="&lt;b&gt;5. Двигатели X, Y, Z, E&lt;/b&gt;&lt;br&gt;A+, A−, B+, B−&lt;br&gt;к каждому двигателю" vertex="1">
+          <mxGeometry height="70" width="245" x="20" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="fan" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="Вентиляторы 24 В&lt;br&gt;Силовые цепи" vertex="1">
+          <mxGeometry height="70" width="185" x="690" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="temp" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=17;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="Термисторы NTC100K&lt;br&gt;Стол / хотэнд&lt;br&gt;По два провода" vertex="1">
+          <mxGeometry height="70" width="185" x="690" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="limit" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#000000;" value="&lt;b&gt;6. Концевики X, Y, Z&lt;/b&gt;&lt;br&gt;Сигнал / GND" vertex="1">
+          <mxGeometry height="70" width="185" x="690" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="pi" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#0055FF;" value="&lt;b&gt;10. Raspberry Pi 3B&lt;/b&gt;&lt;br&gt;Питание 5 В через micro-USB&lt;br&gt;GPIO14 (8) — TX; GPIO15 (10) — RX&lt;br&gt;GND (6)" vertex="1">
+          <mxGeometry height="140" width="425" x="690" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="screen" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fillColor=#ffffff;fontColor=#000000;strokeWidth=1.5;rounded=0;align=center;verticalAlign=middle;spacing=3;strokeColor=#FF8500;" value="&lt;b&gt;8. AMOLED-экран&lt;/b&gt;&lt;br&gt;USB: питание&lt;br&gt;и сенсорный ввод&lt;br&gt;HDMI: изображение" vertex="1">
+          <mxGeometry height="100" width="220" x="895" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="ac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#EF0000;fontColor=#EF0000;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="psu" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="psu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#EF0000;fontColor=#EF0000;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="dc" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="psu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#EF0000;fontColor=#EF0000;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="mks" value="+24 В / GND">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="dc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#F000A0;fontColor=#F000A0;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.2176470588;entryY=0;" target="pi" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="ac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#00B020;fontColor=#00B020;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;" target="pe" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="bedport" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#EF0000;fontColor=#EF0000;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="bed" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="hotport" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#EF0000;fontColor=#EF0000;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="hot" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="motorport" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#9200FF;fontColor=#9200FF;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="motor" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="fanport" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#EF0000;fontColor=#EF0000;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="fan" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="tempport" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#00B020;fontColor=#00B020;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="temp" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="limitport" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#00B020;fontColor=#00B020;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="limit" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="pi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#00B6D4;fontColor=#00B6D4;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0.7411764706;exitY=0;entryX=0.5;entryY=1;" target="camera" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="pi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#00B6D4;fontColor=#00B6D4;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0.6588235294;exitY=1;entryX=0.3409090909;entryY=0;" target="screen" value="USB">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="pi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#FF8500;fontColor=#FF8500;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0.8941176471;exitY=1;entryX=0.7954545455;entryY=0;" target="screen" value="HDMI">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="mks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#0055FF;fontColor=#0055FF;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.0714285714;entryX=0;entryY=0.4642857143;" target="pi" value="TX">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="pi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#0055FF;fontColor=#0055FF;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=0;exitY=0.6928571429;entryX=1;entryY=0.1628571429;" target="mks" value="RX">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="mks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#0055FF;fontColor=#0055FF;strokeWidth=2;fontFamily=Arial;fontSize=14;align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;exitX=1;exitY=0.2542857143;entryX=0;entryY=0.9214285714;" target="pi" value="GND">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
