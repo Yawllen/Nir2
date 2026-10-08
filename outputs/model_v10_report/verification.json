@@ -39,6 +39,32 @@
     1,
     2
   ],
+  "plotted_v10_main_positions": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "plotted_v10_continuation_positions": [
+    11,
+    12
+  ],
   "v10_parent": {
     "version": "v9",
     "epoch": 7
@@ -52,8 +78,8 @@
     {
       "name": "01_training_comparison",
       "pixels": [
-        3960,
-        3000
+        3600,
+        3120
       ],
       "dpi": 300,
       "font": "Times New Roman",

@@ -116,15 +116,14 @@ def save(fig, name):
 
 
 def plot_history(histories, continuation, parent_epoch, source_epoch):
-    fig, panels = plt.subplots(2, 2, figsize=(13.2, 10.0), width_ratios=[5, 1.45], sharey="row")
-    fig.subplots_adjust(left=0.11, right=0.98, bottom=0.26, top=0.79, hspace=0.55, wspace=0.17)
-    axes = panels[:, 0]
+    fig, axes = plt.subplots(2, 1, figsize=(12.0, 10.4))
+    fig.subplots_adjust(left=0.12, right=0.98, bottom=0.27, top=0.8, hspace=0.55)
     styles = [("Версия 5", "#376c9a", "o", "-"),
               ("Версия 8 (r4)", "#627a36", "s", "--"),
               ("Версия 9", "#b47700", "^", "-."),
               ("Версия 10", "#984f79", "D", ":")]
     for rows, (label, color, marker, line) in zip(histories, styles):
-        epochs = [r["epoch"] for r in rows]
+        epochs = [r["epoch"] + (parent_epoch if label == "Версия 10" else 0) for r in rows]
         losses = [r["loss"] for r in rows]
         errors = [100 * (r["at_0_5"]["fp"] + r["at_0_5"]["fn"])
                   / sum(r["at_0_5"][k] for k in COUNTS) for r in rows]
@@ -133,20 +132,26 @@ def plot_history(histories, continuation, parent_epoch, source_epoch):
         for ax, values in zip(axes, (losses, errors)):
             ax.plot(epochs, values, label=label, color=color, marker=marker, markersize=4.5,
                     markevery=marks, linewidth=1.9, linestyle=line, markerfacecolor="white")
-            ax.set_xlim(0.6, 20.5)
-            ax.set_xticks([1, 3, 5, 7, 10, 15, 20])
-            ax.set_xlabel("Эпоха основного запуска, №")
-    extra_values = [[r["loss"] for r in continuation],
+            ax.set_xlim(0.6, parent_epoch + len(histories[-1]) + 0.8)
+            ax.set_xticks([1, 5, 7, 10, 15, 20, 25, 27])
+            ax.set_xlabel("Эпоха, №")
+    source = histories[-1][source_epoch - 1]
+    branch = [dict(source, epoch=0), *continuation]
+    extra_values = [[r["loss"] for r in branch],
                     [100 * (r["at_0_5"]["fp"] + r["at_0_5"]["fn"])
-                     / sum(r["at_0_5"][k] for k in COUNTS) for r in continuation]]
-    for ax, values in zip(panels[:, 1], extra_values):
-        ax.plot([r["epoch"] for r in continuation], values, color="#984f79", marker="D",
-                markersize=6, linewidth=1.9, linestyle=":", markerfacecolor="white")
-        ax.set_xlim(0.7, 2.3)
-        ax.set_xticks([1, 2])
-        ax.set_xlabel("Эпоха дообучения, №")
-        ax.set_title(f"Ещё 2 эпохи\nот эпохи {source_epoch} версии 10", fontsize=15, pad=12)
-        ax.tick_params(axis="y", left=False)
+                     / sum(r["at_0_5"][k] for k in COUNTS) for r in branch]]
+    parent = histories[2][parent_epoch - 1]
+    first = histories[-1][0]
+    parent_values = [parent["loss"], 100 * (parent["at_0_5"]["fp"] + parent["at_0_5"]["fn"])
+                     / sum(parent["at_0_5"][k] for k in COUNTS)]
+    first_values = [first["loss"], 100 * (first["at_0_5"]["fp"] + first["at_0_5"]["fn"])
+                    / sum(first["at_0_5"][k] for k in COUNTS)]
+    for ax, values, start, end in zip(axes, extra_values, parent_values, first_values):
+        ax.annotate("", xy=(parent_epoch + 1, end), xytext=(parent_epoch, start),
+                    arrowprops=dict(arrowstyle="->", color="#984f79", linewidth=1.3))
+        ax.plot([parent_epoch + source_epoch + r["epoch"] for r in branch], values,
+                label="Версия 10: дообучение", color="#984f79", marker="*", markevery=[1, 2],
+                markersize=11, linewidth=1.9, linestyle="-", markerfacecolor="white", zorder=5)
     axes[0].set_yscale("log")
     axes[0].yaxis.set_major_formatter(FuncFormatter(lambda x, pos: fmt(x, max(0, -int(math.floor(math.log10(x)))))))
     axes[0].set_title("(а) Ошибка при обучении", pad=12, fontsize=17)
@@ -154,12 +159,12 @@ def plot_history(histories, continuation, parent_epoch, source_epoch):
     axes[0].scatter([parent_epoch], [histories[2][parent_epoch - 1]["loss"]], s=180,
                     facecolors="none", edgecolors="#b47700", linewidths=1.4, zorder=4)
     axes[0].annotate("Старт версии 10", xy=(parent_epoch, histories[2][parent_epoch - 1]["loss"]),
-                     xytext=(8.7, 0.022), fontsize=14,
+                     xytext=(8.0, 0.025), fontsize=14,
                      arrowprops=dict(arrowstyle="->", color="#777777", linewidth=0.9))
-    axes[0].scatter([source_epoch], [histories[-1][source_epoch - 1]["loss"]], s=180,
+    axes[0].scatter([parent_epoch + source_epoch], [source["loss"]], s=180,
                     facecolors="none", edgecolors="#984f79", linewidths=1.4, zorder=4)
-    axes[0].annotate("Отсюда дообучили", xy=(source_epoch, histories[-1][source_epoch - 1]["loss"]),
-                     xytext=(10.3, 0.0075), fontsize=14,
+    axes[0].annotate(f"Возврат к эпохе {source_epoch} версии 10", xy=(parent_epoch + source_epoch, source["loss"]),
+                     xytext=(16.0, 0.025), fontsize=14,
                      arrowprops=dict(arrowstyle="->", color="#777777", linewidth=0.9))
     axes[1].set_title("(б) Ошибки на проверочных кадрах", pad=12, fontsize=17)
     axes[1].set_ylabel("Неверные ответы, %")
@@ -168,11 +173,10 @@ def plot_history(histories, continuation, parent_epoch, source_epoch):
     axes[1].text(0.98, 0.88, "Порог 0,5", transform=axes[1].transAxes, ha="right", fontsize=14)
     fig.suptitle("Полная история обучения моделей", y=0.98, fontsize=21)
     fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", bbox_to_anchor=(0.55, 0.94),
-               ncol=4, frameon=False, fontsize=14)
-    fig.text(0.55, 0.865, f"Версию 10 начали с весов версии 9 на эпохе {parent_epoch}.",
-             ha="center", fontsize=14)
-    fig.text(0.11, 0.105, "Версия 10: основной запуск — 20 эпох, затем ещё 2 эпохи от весов эпохи 3.\n"
-             "Итоговые веса прошли 3 + 2 = 5 эпох поверх версии 9. Меньше ошибок — лучше.\n"
+               ncol=3, frameon=False, fontsize=14)
+    fig.text(0.12, 0.11, "Счёт эпох версии 10 продолжает версию 9: основной запуск — позиции 8–27.\n"
+             "Дообучение — ветка от эпохи 3 версии 10 (позиция 10): ещё 2 эпохи.\n"
+             "Итоговые веса — последняя звёздочка на ветке дообучения. Меньше ошибок — лучше.\n"
              "Ошибка обучения — не процент; по вертикали соседние отметки отличаются в 10 раз.\n"
              "Данные у версий различаются. У версии 5 есть пересечение похожих изображений\n"
              "между обучением и проверкой, поэтому её оценка может быть завышена.", fontsize=14,
@@ -291,7 +295,7 @@ def write_tables(rows, font):
         "- Сохранённые контрольные наборы многократно использовались при разработке. Кадры одной печати коррелированы; для оценки переноса нужны новые целые сессии вне обучения. Эти результаты не подтверждают обнаружение спагетти при 5D-печати.",
         "- На сборном рисунке показаны разные эксперименты, составы данных и начальные веса. Снижение функции потерь не доказывает превосходство одной версии над другой. У версии 5 подтверждено пересечение преобразованных изображений между обучением и валидацией.",
         "- Доля ошибок по эпохам рассчитана при пороге 0,5 из сохранённых записей истории. Итоговые таблицы, матрицы и сравнение источников используют порог 0,3.",
-        "- На графике показаны все 20 эпох основного запуска версии 10 и отдельно две эпохи дообучения. Версия 10 начата с весов версии 9 на эпохе 7. Для дообучения вернулись к весам эпохи 3 основного запуска и создали оптимизатор заново. Итоговые веса прошли 3 + 2 = 5 эпох поверх версии 9, всего выполнено 22 эпохи; продолжение не соединено с эпохой 20.",
+        "- На общей оси графика счёт версии 10 продолжается от эпохи 7 версии 9: двадцать эпох основного запуска занимают позиции 8–27. Стрелка связывает исходные веса v9 на позиции 7 с первой обученной эпохой v10 на позиции 8; исходная ошибка на позиции 7 относится к v9, а не к новому измерению v10. Две эпохи дообучения показаны отдельной веткой от эпохи 3 версии 10, то есть от позиции 10 общей оси; новые точки ветки находятся на позициях 11 и 12. Для дообучения оптимизатор создан заново. Последняя звёздочка — итоговые веса: 3 + 2 = 5 эпох поверх версии 9, всего выполнено 22 эпохи; ветка не соединена с концом основного запуска.",
         "- Ошибка обучения — бинарная перекрёстная энтропия, без единицы измерения. На графике её шкала логарифмическая: соседние основные отметки отличаются в 10 раз. Неверные ответы и доли распознавания указаны в процентах; объём групп — в кадрах. Весь текст рисунков имеет размер не меньше 14 pt.",
         "- Срез reviewed_hard_negatives пересекается с источниками и не добавляется к их сумме. AP для отдельных источников и отдельных обучающих сессий не была сохранена; в таблице она не подменяется новым расчётом.", "",
         "## Исходные материалы", "",
@@ -400,6 +404,8 @@ def main():
                         final_v10_chain_epochs=[r["epoch"] for r in final_chain],
                         plotted_v10_main_epochs=[r["epoch"] for r in initial],
                         plotted_v10_continuation_epochs=[r["epoch"] for r in continuation],
+                        plotted_v10_main_positions=[parent_epoch + r["epoch"] for r in initial],
+                        plotted_v10_continuation_positions=[parent_epoch + offset + r["epoch"] for r in continuation],
                         v10_parent=dict(version="v9", epoch=parent_epoch),
                         v10_continuation_origin=dict(version="v10", epoch=offset),
                         completed_v10_training_epochs=22, figures=FIGURES,
