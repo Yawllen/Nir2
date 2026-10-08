@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "Intro.tex": {
+      "prose_unchanged": true,
+      "old_citations_preserved": true,
+      "lone_lf": 0
+    },
+    "Chapter1.tex": {
+      "prose_unchanged": true,
+      "old_citations_preserved": true,
+      "lone_lf": 0
+    },
+    "Chapter2.tex": {
+      "prose_unchanged": true,
+      "old_citations_preserved": true,
+      "lone_lf": 0
+    },
+    "Chapter3.tex": {
+      "prose_unchanged": true,
+      "old_citations_preserved": true,
+      "lone_lf": 0
+    },
+    "Chapter4.tex": {
+      "prose_unchanged": true,
+      "old_citations_preserved": true,
+      "lone_lf": 0
+    }
+  },
+  "bib_entries": 50,
+  "cited": 30,
+  "russian": 14,
+  "english": 16,
+  "other": [],
+  "missing": [],
+  "duplicate_keys": 0,
+  "bib_lone_lf": 0,
+  "doi_disabled": true
+}
