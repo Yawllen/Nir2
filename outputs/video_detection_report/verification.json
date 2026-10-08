@@ -1,0 +1,15 @@
+{
+  "source_sha256": "cc95f92cf9f7f261d70db2951fce07eb1e30e0124d849e982f97ddeb5b00b4ce",
+  "video_frames": 777,
+  "latency_sample_count": 26,
+  "latency_mean_ms": 74.66538461538461,
+  "latency_median_ms": 73.6,
+  "bar_score_approx_mean": 0.8240516961891008,
+  "frame_time_s": 18.033333333333335,
+  "frame_size_px": [
+    1088,
+    612
+  ],
+  "checks": "passed",
+  "limitations": "Statistics derived from recorded UI; no model inference or event onset timing."
+}
