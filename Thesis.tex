@@ -13,7 +13,7 @@
 \usepackage{graphicx, epsfig}
 \usepackage{enumitem} 
 \usepackage{listings}
-\usepackage{caption}
+\usepackage{caption3}
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -22,7 +22,7 @@
 \usepackage{color}
 \usepackage[colorlinks=false,linkcolor=blue,breaklinks]{hyperref}
 
-\usepackage[citestyle=gost-numeric,style=gost-numeric,natbib=true,urldate=long, sorting=none,autolang=other,doi=false]{biblatex}
+\usepackage[citestyle=gost-numeric,style=gost-numeric,natbib=true,urldate=long, sorting=none,autolang=other]{biblatex}
 \usepackage{csquotes}
 \pagestyle{footcenter}
 \chapterpagestyle{footcenter}
@@ -32,25 +32,6 @@
 
 \graphicspath{{fig/}}
 \addbibresource{Bib.bib}
-
-\RequirePackage{caption}
-\DeclareCaptionLabelSeparator{defffis}{ \textemdash{} }
-\captionsetup[figure]{justification=centering, labelsep=defffis}
-\captionsetup[lstlisting]{
-  justification=justified,
-  singlelinecheck=false,
-  labelsep=defffis,
-  margin=2.5em
-}
-\captionsetup[table]{
-  justification=justified,
-  singlelinecheck=false,
-  labelsep=defffis,
-  margin=2.5em
-}
-%\captionsetup{justification=centering}
-%\captionsetup{labelsep=defffis}
-
 
 \begin{document}
 
@@ -64,9 +45,8 @@
 \input{Chapter4.tex}
 \input{Conclusion.tex}
 \printbibliography[heading=bibintoc]
-\include{Bib.bib}
-\input{Progress.tex}
 \appendix
 \input{Appendix.tex}
+\input{Progress.tex}
 
 \end{document}
