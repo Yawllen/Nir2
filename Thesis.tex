@@ -23,6 +23,18 @@
 \usepackage[colorlinks=false,linkcolor=blue,breaklinks]{hyperref}
 
 \usepackage[citestyle=gost-numeric,style=gost-numeric,natbib=true,urldate=long, sorting=none,autolang=other]{biblatex}
+% gost-numeric не выводит eid: печатаем номер статьи без префикса страниц.
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \pertype{article}
+      \step[notfield=pages,final]
+      \step[fieldsource=eid,final]
+      \step[fieldset=pages,origfieldval]
+      \step[fieldset=bookpagination,fieldvalue=none]
+    }
+  }
+}
 \usepackage{csquotes}
 \pagestyle{footcenter}
 \chapterpagestyle{footcenter}
