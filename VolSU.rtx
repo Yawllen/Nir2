@@ -39,6 +39,7 @@
     %\RequirePackage{caption}
     \DeclareCaptionLabelSeparator{dottt}{. }
     \captionsetup{labelsep=dottt, font=normalfont}
+    \AtBeginEnvironment{table}{\setlength{\belowcaptionskip}{10pt}}
 
     \renewcommand*{\multicitedelim}{\addcomma\space}
 
