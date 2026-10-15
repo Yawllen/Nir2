@@ -24,6 +24,7 @@
 
 # Generated PDFs
 *.pdf
+!docs/normokontrol/Normokontrol_2_-3.pdf
 !fig/printer-decision-flow.drawio.pdf
 !fig/server-detection-flow.drawio.pdf
 !fig/commutation-a2.drawio.pdf
